@@ -1,0 +1,42 @@
+{
+  "links": [
+    {
+      "id": 1,
+      "title": "Google",
+      "url": "https://google.com"
+    },
+    {
+      "id": 2,
+      "title": "Github",
+      "url": "https://github.com"
+    },
+    {
+      "id": 3,
+      "title": "shadcn/ui/table",
+      "url": "https://v0.dev/chat/P1h55Ck5BqR"
+    },
+    {
+      "id": 4,
+      "title": "division links",
+      "url": "https://bdapi.vercel.app/api/v.1/division"
+    },
+    {
+      "id": 4,
+      "title": "districts links",
+      "url": "https://bdapi.vercel.app/api/v.1/division",
+      "2ndUrl": "https://bdapi.vercel.app/api/v.1/district/:divisionId"
+    },
+    {
+      "id": 4,
+      "title": "upazila links",
+      "url": "https://bdapi.vercel.app/api/v.1/division",
+      "2ndUrl": "https://bdapi.vercel.app/api/v.1/upazilla/3"
+    },
+    {
+      "id": 4,
+      "title": "union links",
+      "url": "https://bdapi.vercel.app/api/v.1/division",
+      "2ndUrl": "https://bdapi.vercel.app/api/v.1/union/27"
+    }
+  ]
+}
