@@ -152,248 +152,260 @@ const Registration_Page = () => {
   };
 
   return (
-    <div className="xl:ml-8 flex flex-col justify-center items-center  ">
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-3 grid grid-cols-1 justify-items-start w-full"
-        >
-          <FormField
-            className=""
-            control={form.control}
-            name="username"
-            {...form.register("username", {
-              required: {
-                value: true,
-                message: "Please enter a username.",
-              },
-            })}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Username</FormLabel>
-                <FormControl>
-                  <Input
-                    className="w-60 "
-                    type="text"
-                    placeholder="enter your username😎............................"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-                {registrationError === "Username already exists" && (
-                  <div className="text-red-500">{registrationError}</div>
-                )}
-              </FormItem>
-            )}
-          />
-          <FormField
-           
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input
-                    className="w-60"
-                    type="text"
-                    placeholder="enter your email📧"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-                {registrationError === "Email already exists" && (
-                  <div className="text-red-500">{registrationError}</div>
-                )}
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            className="w-full"
-            control={form.control}
-            name="bloodGroup"
-            render={({ field, fieldState }) => (
-              <FormItem>
-                <FormLabel>Select Your Blood Group</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className="text-[#737373] w-60">
-                      <SelectValue placeholder="Your Blood Group🩸" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {bloodGroups.map((bg, index) => (
-                      <SelectItem
-                        key={index}
-                        value={bg}
-                      >
-                        {bg}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormMessage>{fieldState.error?.message}</FormMessage>
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            className="w-full"
-            control={form.control}
-            name="bloodDonationAbility"
-            render={({ field }) => (
-              <FormItem className="space-y-3">
-                <FormLabel>Please select your blood donation ability</FormLabel>
-                <FormControl>
-                  <RadioGroup
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                    className="flex flex-col space-y-1"
-                  >
-                    <FormItem className="flex items-center space-x-3 space-y-0">
-                      <FormControl>
-                        <RadioGroupItem value={true} />
-                      </FormControl>
-                      <FormLabel className="font-normal">
-                        I am able to donate blood.
-                      </FormLabel>
-                    </FormItem>
-                    <FormItem className="flex items-center space-x-3 space-y-0">
-                      <FormControl>
-                        <RadioGroupItem value={false} />
-                      </FormControl>
-                      <FormLabel className="font-normal">
-                        I am not able to donate blood.
-                      </FormLabel>
-                    </FormItem>
-                  </RadioGroup>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="division"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Give us your Address🏠</FormLabel>
-                <Select
-                  onValueChange={(value) => {
-                    handleDivisionChange(value);
-                    field.onChange;
-                  }}
-                  // onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className="text-[#737373] w-60 ">
-                      <SelectValue placeholder="Select your Division" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem
-                      value="Select Your Division"
-                      disabled
-                    >
-                      Select Your Division
-                    </SelectItem>
-                    {division.map((division) => (
-                      <SelectItem
-                        key={division.id}
-                        value={division.name}
-                      >
-                        {division.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormDescription>Please select your division</FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          {filteredDistricts.length > 0 && (
+    <div className="xl:ml-8 flex flex-col justify-center items-center bg-gray-100 ">
+      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg md:shadow-md">
+        <div className="text-center">
+          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
+            Join Blood Bridge 🩸
+          </h1>
+          <p className="mb-4"> Register to spread humanity, save lives! </p>
+        </div>
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-3  w-full"
+          >
             <FormField
+              className=""
               control={form.control}
-              name="district"
+              name="username"
+              {...form.register("username", {
+                required: {
+                  value: true,
+                  message: "Please enter a username.",
+                },
+              })}
               render={({ field }) => (
                 <FormItem>
+                  <FormLabel>Username</FormLabel>
+                  <FormControl>
+                    <Input
+                      
+                      type="text"
+                      placeholder="enter your username😎............................"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                  {registrationError === "Username already exists" && (
+                    <div className="text-red-500">{registrationError}</div>
+                  )}
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input
+                      
+                      type="text"
+                      placeholder="enter your email📧"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                  {registrationError === "Email already exists" && (
+                    <div className="text-red-500">{registrationError}</div>
+                  )}
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              
+              control={form.control}
+              name="bloodGroup"
+              render={({ field, fieldState }) => (
+                <FormItem>
+                  <FormLabel>Select Your Blood Group</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="text-[#737373] w-60">
-                        <SelectValue placeholder="Select your District" />
+                      <SelectTrigger className="text-[#737373]">
+                        <SelectValue placeholder="Your Blood Group🩸" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      {filteredDistricts.map((dist) => (
+                      {bloodGroups.map((bg, index) => (
                         <SelectItem
-                          key={dist.id}
-                          value={dist.name}
+                          key={index}
+                          value={bg}
                         >
-                          {dist.name}
+                          {bg}
                         </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
-                  <FormDescription>Please select your district</FormDescription>
+                  <FormMessage>{fieldState.error?.message}</FormMessage>
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              className="w-full"
+              control={form.control}
+              name="bloodDonationAbility"
+              render={({ field }) => (
+                <FormItem className="space-y-3">
+                  <FormLabel>
+                    Please select your blood donation ability
+                  </FormLabel>
+                  <FormControl>
+                    <RadioGroup
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                      className="flex flex-col space-y-1"
+                    >
+                      <FormItem className="flex items-center space-x-3 space-y-0">
+                        <FormControl>
+                          <RadioGroupItem value={true} />
+                        </FormControl>
+                        <FormLabel className="font-normal">
+                          I am able to donate blood.
+                        </FormLabel>
+                      </FormItem>
+                      <FormItem className="flex items-center space-x-3 space-y-0">
+                        <FormControl>
+                          <RadioGroupItem value={false} />
+                        </FormControl>
+                        <FormLabel className="font-normal">
+                          I am not able to donate blood.
+                        </FormLabel>
+                      </FormItem>
+                    </RadioGroup>
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-          )}
 
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Password</FormLabel>
-                <FormControl>
-                  <Input
-                    className="w-60"
-                    type="password"
-                    placeholder="enter your password🗝️"
-                    name="password"
-                    {...field}
-                    onChange={(e) => {
-                      field.onChange(e);
-                      updatePasswordErrors(e.target.value);
+            <FormField
+              control={form.control}
+              name="division"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Give us your Address🏠</FormLabel>
+                  <Select
+                    onValueChange={(value) => {
+                      handleDivisionChange(value);
+                      field.onChange;
                     }}
-                  />
-                </FormControl>
-                {form.formState.errors.password && (
-                  <ul>
+                    // onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="text-[#737373]  ">
+                        <SelectValue placeholder="Select your Division" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem
+                        value="Select Your Division"
+                        disabled
+                      >
+                        Select Your Division
+                      </SelectItem>
+                      {division.map((division) => (
+                        <SelectItem
+                          key={division.id}
+                          value={division.name}
+                        >
+                          {division.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormDescription>Please select your division</FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            {filteredDistricts.length > 0 && (
+              <FormField
+                control={form.control}
+                name="district"
+                render={({ field }) => (
+                  <FormItem>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger className="text-[#737373] ">
+                          <SelectValue placeholder="Select your District" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {filteredDistricts.map((dist) => (
+                          <SelectItem
+                            key={dist.id}
+                            value={dist.name}
+                          >
+                            {dist.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormDescription>
+                      Please select your district
+                    </FormDescription>
                     <FormMessage />
-                    {Object.entries(passwordErrors).map(([key, value]) => (
-                      <ul key={key}>
-                        <li className="text-red-600 text-xs pl-3 ">
-                          {" "}
-                          {value && `Password must contain at least one ${key}`}
-                        </li>
-                      </ul>
-                    ))}
-                  </ul>
+                  </FormItem>
                 )}
-              </FormItem>
+              />
             )}
-          />
-          <Button
-            className="justify-self-center"
-            type="submit"
-          >
-            Submit
-          </Button>
-        </form>
-      </Form>
+
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input
+                      
+                      type="password"
+                      placeholder="enter your password🗝️"
+                      name="password"
+                      {...field}
+                      onChange={(e) => {
+                        field.onChange(e);
+                        updatePasswordErrors(e.target.value);
+                      }}
+                    />
+                  </FormControl>
+                  {form.formState.errors.password && (
+                    <ul>
+                      <FormMessage />
+                      {Object.entries(passwordErrors).map(([key, value]) => (
+                        <ul key={key}>
+                          <li className="text-red-600 text-xs pl-3 ">
+                            {" "}
+                            {value &&
+                              `Password must contain at least one ${key}`}
+                          </li>
+                        </ul>
+                      ))}
+                    </ul>
+                  )}
+                </FormItem>
+              )}
+            />
+            <Button
+              className="justify-self-center"
+              type="submit"
+            >
+              Submit
+            </Button>
+          </form>
+        </Form>
+      </div>
     </div>
   );
 };
