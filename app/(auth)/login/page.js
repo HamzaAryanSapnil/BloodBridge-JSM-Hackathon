@@ -15,6 +15,23 @@ const Login_Page = () => {
         password: "",
       },
     });
+    const handleServerAction = async (formData) => {
+      const response = await loginUser(formData);
+      console.log(response);
+
+      if (response.success) {
+        toast({
+          title: "Sign in successful",
+          description: response.message,
+        });
+      } else {
+        toast({
+          title: "Sign in failed",
+          description: response.message,
+          variant: "destructive",
+        });
+      }
+    };
   return (
     <div className="flex justify-center items-center  bg-gray-100">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg md:shadow-md">
@@ -32,6 +49,7 @@ const Login_Page = () => {
             // onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-6"
             // action={handleServerAction}
+            
           >
             <FormField
               control={form.control}

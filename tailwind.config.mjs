@@ -55,6 +55,9 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      animation: {
+        "banner-scale": "scale-x-150 ease-in-out 0.5s fixed ",
+      }
     },
   },
   daisyui: {

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Blood Bridge. Your Blood Donation Hub",
+  title: "Blood Bridge🩸🩸🩸   Your Blood Donation Hub",
   description: "You can donate blood spread charity. || Blood Bridge || Your Blood Donation Hub",
 };
 
